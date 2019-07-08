@@ -1,1 +1,1 @@
-# scoala-informala-homework
+# Ceva interesant
