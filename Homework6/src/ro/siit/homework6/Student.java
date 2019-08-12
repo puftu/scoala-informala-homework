@@ -42,16 +42,12 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return Objects.equals(firstName, student.firstName) &&
-                Objects.equals(lastName, student.lastName) &&
-                Objects.equals(dateOfBirth, student.dateOfBirth) &&
-                Objects.equals(gender, student.gender) &&
-                Objects.equals(cnp, student.cnp);
+        return cnp.equals(student.cnp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, dateOfBirth, gender, cnp);
+        return Objects.hash(cnp);
     }
 
     @Override
@@ -67,5 +63,13 @@ public class Student {
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getCnp() {
+        return cnp;
     }
 }
