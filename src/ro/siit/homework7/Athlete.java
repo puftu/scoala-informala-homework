@@ -29,6 +29,7 @@ public class Athlete {
         this.shooting2 = shooting2;
         this.shooting3 = shooting3;
 
+        // We check how many missed shots are at every shooting and we add 10 second for every miss
         int count1 = shooting1.length() - shooting1.replaceAll("o", "").length();
         addtime(count1);
         int count2 = shooting2.length() - shooting2.replaceAll("o", "").length();
@@ -55,5 +56,21 @@ public class Athlete {
 
     public LocalTime getFinalTime() {
         return finalTime;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public LocalTime getTime() {
+        return time;
     }
 }
