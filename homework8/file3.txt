@@ -1,0 +1,7 @@
+Clarence Stark,1993-04-21,male
+Nereida Stamm,1976-12-30,male
+Julio Weimann,1955-09-20,male
+Jeffie Schoen,1971-12-14,female
+Ty Hansen,1965-09-05,male
+Senaida Sauer,1974-07-22,female
+Oleta Huel,1991-04-19,male
