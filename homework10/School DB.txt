@@ -1,0 +1,72 @@
+create database school;
+use school;
+create table classes(
+classid int,
+courseid int not null auto_increment ,
+days int,
+starttime time,
+endtime time,
+bldg varchar(64),
+roomnum int,
+primary key (courseid)
+);
+
+create table courses (
+courseid int,
+area varchar(64),
+title varchar(64),
+descrip varchar(64),
+prereq varchar(64),
+primary key (courseid),
+foreign key(courseid) references classes(courseid));
+
+create table crosslistings(
+courseid int,
+dept varchar(64),
+coursenum int ,
+primary key (courseid),
+foreign key(courseid) references courses(courseid));
+
+create table courseprofs(
+courseid int,
+profid int not null auto_increment,
+primary key (profid),
+foreign key (courseid) references crosslistings(courseid));
+
+create table profs(
+profid int,
+profname varchar(64),
+foreign key (profid) references courseprofs (profid));
+
+insert into classes (classid, days, starttime, endtime, bldg, roomnum) values (1, 3, "08:00:00", "10:00:00", "Main", 5);
+insert into classes (classid, days, starttime, endtime, bldg, roomnum) values (2, 2, "10:00:00", "12:00:00", "Main", 2);
+insert into classes (classid, days, starttime, endtime, bldg, roomnum) values (3, 2, "08:00:00", "10:00:00", "Gym", 1);
+
+insert into courses () values (1, "Science", "INTRO-Chemistry", "bla", "none");
+insert into courses () values (2, "Science", "Physics", "tra", "none");
+insert into courses () values (3, "Sports", "Football", "play", "kit");
+
+insert into crosslistings () values (1, "sin" , 1);
+insert into crosslistings () values (2, "sin" , 2);
+insert into crosslistings () values (3, "cos" , 3);
+
+insert into courseprofs () values (1,1);
+insert into courseprofs () values (2,2);
+insert into courseprofs () values (3,3);
+
+insert into profs () values (1, "Lucian");
+insert into profs () values (2, "George");
+insert into profs () values (3, "cos-Danut");
+
+select * from classes;
+select * from courses where courseid = 2;
+select * from classes inner join courses on classes.courseid = courses.courseid where lower(courses.title) like "intro%";
+select * from classes inner join crosslistings on 
+classes.courseid = crosslistings.courseid where lower(crosslistings.dept) = "cos" 
+and crosslistings.coursenum like "3%";
+select * from classes inner join profs on classes.courseid = profs.profid where lower(profs.profname) like "cos%";
+
+
+
+
+
