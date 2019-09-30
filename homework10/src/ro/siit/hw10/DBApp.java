@@ -13,7 +13,8 @@ public class DBApp {
     }
 
 
-    public static void displayAllFromClasses(){Connection conn = getConnection("mysql", "localhost", "3306", "school", "root", "Pluch2019");
+    public static void displayAllFromClasses() {
+        Connection conn = getConnection("mysql", "localhost", "3306", "school", "root", "Pluch2019");
         if (conn == null) return;
         Statement st = null;
         ResultSet rs = null;
@@ -32,7 +33,7 @@ public class DBApp {
                 int roomNum = rs.getInt("roomnum");
 
 
-                System.out.format(format, classId,courseId,days,startTime,endTime,building,roomNum);
+                System.out.format(format, classId, courseId, days, startTime, endTime, building, roomNum);
 
             }
 
@@ -41,10 +42,10 @@ public class DBApp {
         }
 
 
-
     }
 
-    public static void displayCourseById(int id){Connection conn = getConnection("mysql", "localhost", "3306", "school", "root", "Pluch2019");
+    public static void displayCourseById(int id) {
+        Connection conn = getConnection("mysql", "localhost", "3306", "school", "root", "Pluch2019");
         if (conn == null) return;
         Statement st = null;
         ResultSet rs = null;
@@ -62,7 +63,7 @@ public class DBApp {
                 String prereq = rs.getString("prereq");
 
 
-                System.out.format(format, courseId,area, title,description,prereq);
+                System.out.format(format, courseId, area, title, description, prereq);
 
             }
 
@@ -71,10 +72,10 @@ public class DBApp {
         }
 
 
-
     }
 
-    public static void displayClassesWithIntro(){Connection conn = getConnection("mysql", "localhost", "3306", "school", "root", "Pluch2019");
+    public static void displayClassesWithIntro() {
+        Connection conn = getConnection("mysql", "localhost", "3306", "school", "root", "Pluch2019");
         if (conn == null) return;
         Statement st = null;
         ResultSet rs = null;
@@ -91,8 +92,7 @@ public class DBApp {
                 String title = rs.getString("title");
 
 
-
-                System.out.format(format,classId, courseId,area, title);
+                System.out.format(format, classId, courseId, area, title);
 
             }
 
@@ -101,10 +101,10 @@ public class DBApp {
         }
 
 
-
     }
 
-    public static void displayClassesWithDep(){Connection conn = getConnection("mysql", "localhost", "3306", "school", "root", "Pluch2019");
+    public static void displayClassesWithDep() {
+        Connection conn = getConnection("mysql", "localhost", "3306", "school", "root", "Pluch2019");
         if (conn == null) return;
         Statement st = null;
         ResultSet rs = null;
@@ -124,8 +124,7 @@ public class DBApp {
                 int courseNum = rs.getInt("coursenum");
 
 
-
-                System.out.format(format,classId, coursIid,bldg,dept, courseNum);
+                System.out.format(format, classId, coursIid, bldg, dept, courseNum);
 
             }
 
@@ -134,10 +133,10 @@ public class DBApp {
         }
 
 
-
     }
 
-    public static void displayClassesByProfname(){Connection conn = getConnection("mysql", "localhost", "3306", "school", "root", "Pluch2019");
+    public static void displayClassesByProfname() {
+        Connection conn = getConnection("mysql", "localhost", "3306", "school", "root", "Pluch2019");
         if (conn == null) return;
         Statement st = null;
         ResultSet rs = null;
@@ -155,9 +154,7 @@ public class DBApp {
                 String profName = rs.getString("profname");
 
 
-
-
-                System.out.format(format,classId, courseId,bldg,profId,profName);
+                System.out.format(format, classId, courseId, bldg, profId, profName);
 
             }
 
@@ -166,9 +163,7 @@ public class DBApp {
         }
 
 
-
     }
-
 
 
     public static Connection getConnection(String dbType, String host, String port, String dbName, String username, String pass) {
